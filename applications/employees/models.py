@@ -1,5 +1,21 @@
 from django.db import models
 from applications.department.models import Department
+
+class Hability(models.Model):
+    """Model definition for Hability."""
+
+    hability = models.CharField("Habilidad", max_length=50)
+
+    class Meta:
+        """Meta definition for Hability."""
+
+        verbose_name = 'Hability'
+        verbose_name_plural = 'Habilities'
+
+    def __str__(self):
+        """Unicode representation of Hability."""
+        pass
+
 class Employee(models.Model):
     """Model definition for employee"""
 
@@ -14,6 +30,7 @@ class Employee(models.Model):
     last_name = models.CharField("Apellido", max_length=50)
     position = models.CharField("Cargo", max_length=1, choices=JOB_CHOICES)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    habilities = models.ManyToManyField(Hability)
 
 
     def __str__(self):
