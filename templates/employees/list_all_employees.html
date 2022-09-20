@@ -1,3 +1,11 @@
 <h1>List all employees</h1>
 
-{{lista}}
+<ul>
+    
+    {% for employee in object_list  %}
+
+        <li>{{ employee.first_name }}</li>
+        
+    {% endfor %}
+        
+</ul>

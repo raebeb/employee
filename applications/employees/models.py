@@ -13,8 +13,7 @@ class Hability(models.Model):
         verbose_name_plural = 'Habilities'
 
     def __str__(self):
-        """Unicode representation of Hability."""
-        pass
+        return self.hability
 
 class Employee(models.Model):
     """Model definition for employee"""

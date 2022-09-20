@@ -1,0 +1,15 @@
+<h1>buscar por palabra clave</h1>
+
+<form method="GET">
+    {% csrf_token %}
+    <input type="text" name="keyword" id="keyword" placeholder="Ingrese algo">
+    <button type="submit">Buscar</button>
+</form>
+
+<ul>
+    {% for employee in employees  %}
+       <i>{{employee}}</i> 
+    {% endfor %}
+</ul>
+
+    
