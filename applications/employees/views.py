@@ -2,6 +2,7 @@ from curses.ascii import EM
 from django.shortcuts import render
 from django.views.generic import (
     ListView, 
+    DetailView,
 )
 
 from .models import Employee
@@ -31,3 +32,17 @@ class ListEmployeesByKeyword(ListView):
         queryset = Employee.objects.filter(first_name=keyword)
         print(queryset)
         return queryset
+
+class ListEmployeeHabilities(ListView):
+    template_name = 'employees/list_employee_habilities.html'
+    context_object_name = 'Habilities'
+
+    def get_queryset(self):
+        employee = Employee.objects.get(id=2)
+        habilities = employee.habilities.all()
+        return habilities
+
+
+class EmployeeDetailView(DetailView):
+    model = Employee
+    template_name = "employees/detail_employee.html"

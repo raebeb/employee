@@ -1,0 +1,12 @@
+<h1>detalle empleado</h1>
+
+<h2>Datos:</h2>
+<ul>
+<li>Nombre : {{ object.first_name }}</li>
+<li>Apellido : {{ object.last_name}}</li>
+<li>Pocicion : {{ object.position }}</li>
+<li>Department : {{ object.department }}</li>
+<li>Habilidades : {{ object.habilities.all() }}</li>
+
+
+</ul>
