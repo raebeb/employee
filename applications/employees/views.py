@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.generic import (
     ListView, 
     DetailView,
+    CreateView
 )
 
 from .models import Employee
@@ -46,3 +47,10 @@ class ListEmployeeHabilities(ListView):
 class EmployeeDetailView(DetailView):
     model = Employee
     template_name = "employees/detail_employee.html"
+
+
+class EmployeeCreateView(CreateView):
+    model = Employee
+    template_name = "employees/create_employee.html"
+    fields = ('__all__')
+    success_url = '.'
